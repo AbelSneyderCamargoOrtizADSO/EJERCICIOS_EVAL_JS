@@ -24,6 +24,10 @@ export function promprimos() {
 
   for (let i = 0; i < numeros.length; i++) {
 
+    if (numeros[i] === 1) {
+      continue;
+    }
+
     let esPrimo = 0;
 
     for (let j = 2; j < numeros[i]; j++) {
