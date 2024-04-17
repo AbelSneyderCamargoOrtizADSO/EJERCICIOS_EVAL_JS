@@ -17,35 +17,29 @@ export function prompar() {
   return prom
 }
 
-export function promprimos() {
 
+export function promprimos() {
   let suma = 0;
-  let contpri = 0
+  let contpri = 0;
 
   for (let i = 0; i < numeros.length; i++) {
+    if (numeros[i] > 1) {
+      let esPrimo = true;
 
-    if (numeros[i] === 1) {
-      continue;
-    }
-
-    let esPrimo = 0;
-
-    for (let j = 2; j < numeros[i]; j++) {
-
-      if (numeros[i] % j == 0) {
-        esPrimo = 1;
-        break;
+      for (let j = 2; j < numeros[i]; j++) {
+        if (numeros[i] % j === 0) {
+          esPrimo = false;
+          break;
+        }
       }
-      break;
-    }
 
-    if (esPrimo === 0) {
-      suma += numeros[i];
-      contpri++;
+      if (esPrimo) {
+        suma += numeros[i];
+        contpri++;
+      }
     }
   }
 
-  let prom = suma / contpri;
-
-  return prom
+  let prom = contpri > 0 ? suma / contpri : 0;
+  return prom;
 }

@@ -16,31 +16,27 @@ export function contarpar() {
 }
 
 export function contarpri() {
-
-  let contpri = 0
+  let contpri = 0;
 
   for (let i = 0; i < numeros.length; i++) {
+    let esPrimo = true;
 
-    if (numeros[i] === 1) {
-      continue;
-    }
-
-    let esPrimo = 0;
-
-    for (let j = 2; j < numeros[i]; j++) {
-
-      if (numeros[i] % j == 0) {
-        esPrimo = 1;
-        break;
+    if (numeros[i] > 1) {
+      for (let j = 2; j < numeros[i]; j++) {
+        if (numeros[i] % j === 0) {
+          esPrimo = false;
+          break;
+        }
       }
-      break;
+    } else {
+      esPrimo = false;
     }
 
-    if (esPrimo === 0) {
+    if (esPrimo) {
       contpri++;
     }
   }
 
-  return contpri
+  return contpri;
 }
 
